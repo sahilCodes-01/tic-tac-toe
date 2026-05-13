@@ -13,7 +13,10 @@ const Gameboard = (function () {
     gameboard: gameboard,
     resetBoard,
     placeMarker: function (index, marker) {
-      gameboard[index] = marker;
+      if (gameboard[index] !== "") return;
+      else {
+        gameboard[index] = marker;
+      }
     },
   };
 })();
@@ -47,6 +50,9 @@ const Controller = (function (
   //Playround function check the winner and display on screen
   function playRound(index) {
     if (gameOver) return;
+    if (gameOver) return;
+    if (Gameboard.gameboard[index] !== "") return;
+
     Gameboard.placeMarker(index, activePlayer.marker);
     DisplayController.renderBoard();
 
@@ -55,14 +61,10 @@ const Controller = (function (
       gameOver = true;
       const winningPlayer = players.find((player) => player.marker === winner);
       DisplayController.showResult(`${winningPlayer.name} has won`);
-    } 
-    
-    else if (Gameboard.gameboard.every((cell) => cell !== "")) {
+    } else if (Gameboard.gameboard.every((cell) => cell !== "")) {
       gameOver = true;
       DisplayController.showResult("it's a tie");
-    } 
-    
-     else {
+    } else {
       switchPlayerTurn();
     }
   }
@@ -123,6 +125,8 @@ const DisplayController = (function () {
   let playerOneInput = document.querySelector("#player-1");
   let playerTwoInput = document.querySelector("#player-2");
   const startButton = document.querySelector(".start-btn");
+  const mainContainer = document.querySelector(".container ");
+  const playerForm = document.querySelector(".player");
 
   const renderBoard = function () {
     cells.forEach((cell, index) => {
@@ -152,8 +156,15 @@ const DisplayController = (function () {
   });
 
   startButton.addEventListener("click", (event) => {
+    if (playerOneInput.value === "" || playerTwoInput.value === "") return;
     Controller.startGame(playerOneInput.value, playerTwoInput.value);
+    DisplayController.displayHide();
   });
+
+  const displayHide = function () {
+    mainContainer.classList.remove("hide");
+    playerForm.classList.add("hide");
+  };
 
   renderBoard();
 
@@ -161,5 +172,6 @@ const DisplayController = (function () {
     renderBoard,
     showResult,
     resetDisplay,
+    displayHide,
   };
 })();
