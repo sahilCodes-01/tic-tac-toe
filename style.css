@@ -22,8 +22,8 @@ body {
   width:35vw;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   justify-content: center;
+
 }
 
 .cell {
