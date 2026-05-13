@@ -62,7 +62,7 @@ const Controller = (function (
       DisplayController.showResult("it's a tie");
     } 
     
-    else {
+     else {
       switchPlayerTurn();
     }
   }
