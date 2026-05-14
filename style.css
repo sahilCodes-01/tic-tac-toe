@@ -19,15 +19,15 @@ body {
 
 .game {
   height: 50vh;
-  width:35vw;
+  width: 35vw;
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
   justify-content: center;
-
 }
 
 .cell {
-  height:100px;
+  height: 100px;
   padding: 14px;
   width: 115px;
   border-radius: 1rem;
@@ -38,6 +38,86 @@ body {
   background-color: rgb(76, 201, 250);
 }
 
-.hide{
+.hide {
   display: none;
+}
+
+.player {
+  justify-content: space-evenly;
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#player-1 {
+  margin-left: -119px;
+}
+
+.lable-2 {
+  margin-right: -217px;
+}
+
+input {
+  appearance: none;
+  width: 220px;
+  height: 25px;
+  border: 1px solid;
+  border-color: #e5e7eb;
+  border-radius: 4px;
+}
+
+input:focus {
+  outline: 1px solid blue;
+}
+
+.player input:invalid {
+  border: none;
+  outline: 1px solid red;
+}
+
+.player [type="text"]:invalid {
+  outline: 1px solid red;
+}
+
+.start-game-btn {
+  max-width: 100px;
+  position: relative;
+  left: 89vw;
+  margin-top: 50px;
+}
+
+.start-btn,
+#reset{
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color:rgb(76, 201, 250);
+  color: white;
+  cursor: pointer;
+}
+
+#reset:hover{
+background-color:rgb(10, 153, 189);
+transition: ease-in;
+}
+
+.start-btn:hover{
+  background-color:rgb(10, 153, 189);
+  transition: ease-in;
+}
+
+
+h1{
+  margin-top: -56px;
+}
+
+
+.reset-btn{
+   position: absolute;
+   left: 6vw;
+   top: 15vh;
+}
+
+.player label{
+  font-weight: 700;
 }
