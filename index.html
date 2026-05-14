@@ -14,22 +14,23 @@
     <div class="player">
 
         <label for="player-1">First Player</label>
-        <input type="text" id="player-1" name="player-1">
-        <label for="player-2">Second Player</label>
-        <input type="text" id="player-2" name="player-2">
+        <input type="text" id="player-1" name="player-1" required>
+        <label class="lable-2" for="player-2">Second Player</label>
+        <input type="text" id="player-2" name="player-2" required>
+    </div>
+
+    <div class="start-game-btn">
         <button class="start-btn">Start Game</button>
-
     </div>
 
-     <div class="msg-container hide">
+    <div class="msg-container hide">
         <p id="msg"></p>
-       
+
     </div>
-    
- <button id="new-btn">New Game</button>
+
     <main>
         <h1>Tic Tac Toe</h1>
-        <div class="container">
+        <div class="container hide">
             <div class="game">
                 <div class="cell"></div>
                 <div class="cell"></div>
@@ -42,9 +43,11 @@
                 <div class="cell"></div>
             </div>
         </div>
-        <button id="reset">Reset Game</button>
-    </main>
 
+    </main>
+    <div class="reset-btn">
+        <button id="reset">Reset Game</button>
+    </div>
     <script src="script.js"></script>
 </body>
 
